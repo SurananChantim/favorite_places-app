@@ -29,13 +29,13 @@ class _LocationInputState extends State<LocationInput> {
     }
     final lat = _pickedLocation!.latitude;
     final lng = _pickedLocation!.longitude;
-    return 'https://maps.googleapis.com/maps/api/staticmap?center=$lat,$lng&zoom=16&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C$lat,$lng&key=AIzaSyB2fIcv2g54oxgv7X_lAqBexPeUcXiMKHk';
+    return 'https://maps.googleapis.com/maps/api/staticmap?center=$lat,$lng&zoom=16&size=600x300&maptype=roadmap&markers=color:red%7Clabel:A%7C$lat,$lng&key={Your Google API Key}';
   }
 
   Future<void> _savePlace(double latitude, double longtitude) async {
     // ดึงข้อมูลที่อยู่จาก Google Maps API
     final url = Uri.parse(
-        'https://maps.googleapis.com/maps/api/geocode/json?latlng=$latitude,$longtitude&key=AIzaSyB2fIcv2g54oxgv7X_lAqBexPeUcXiMKHk');
+        'https://maps.googleapis.com/maps/api/geocode/json?latlng=$latitude,$longtitude&key={Your Google API Key}');
     final response = await http.get(url);
     // print('Geocoding response status: ${response.statusCode}');
     if (response.statusCode != 200) {
